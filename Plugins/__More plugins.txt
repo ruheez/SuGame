@@ -1,0 +1,7 @@
+To install more plugins:
+
+1. Open .env config file and set:
+
+APP_PLUGINS_URL = https://youdate.hauntd.me/plugins/api
+
+2. Navigate to Admin > Plugins > Browse and install preferred plugins

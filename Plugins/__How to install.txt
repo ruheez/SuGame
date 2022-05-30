@@ -1,0 +1,5 @@
+Each plugin archive should be extracted to `content/plugins/%plugin%` directory. For example:
+
+fakes.zip -> content/plugins/fakes
+limits.zip -> content/plugins/limits
+

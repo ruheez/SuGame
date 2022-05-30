@@ -1,0 +1,239 @@
+Version 2.0.1 - Mar 02 2021
+---------------------------
+* Fixes and tweaks
+
+Version 2.0.0 - Feb 28 2021
+---------------------------
++ New: orders admin page
++ New: bans by IP/CIDR
++ New: app status page (Admin > Settings > App Status)
++ New: help page (structured help blocks with categories)
++ New: moderator role in admin area, simple permissions management for different admin pages
++ New: pricing editor in admin area
++ New: custom user search (profile fields)
++ Added unban cli command (./yii user/unban <ip>)
++ Added dark mode in default theme (auto, always light, always dark, or user defined)
++ Added settings component events override (get/set/remove)
++ Added multiselect profile field type
++ Added search feature in admin area (header)
++ Added language switcher popup
++ Added automatic timezone detection by IP
++ Admin area page: delete photo thumbnails (content/cache)
++ Added admin option: restrict incoming likes page for non-premium users
++ Added admin option: limit photo uploads per user
++ Added admin option: hide/blur custom profile fields for guests
++ Added admin option: narrow down messages listing in admin area (active users only; reported users only)
+* Stripe new SDK
+* PayPal new SDK
+* Removed IpStack integration in favour of https://freegeoip.app/ (free & keyless)
+* Theme visual updates and fixes
+* Fixed: glide library uses invalid temporary directory on some hosting providers (https://github.com/thephpleague/glide/issues/186)
+* Better PHP 8 support
+* Updated dependencies (Yii 2.0.40, payment SDK and others)
+* Photo upload form update
+* Reduced CSS file size
+* Misc fixes and improvements
+* Updated geodata (countries and cities translations)
+- IMPORTANT: removed Fortumo SDK (due to its broken Web SDK)
+- IMPORTANT: removed youdate-dark theme (default theme now supports auto/light/dark modes)
+
+Version 1.12 - Apr 15 2020
+--------------------------
++ Group post attachments added
++ Added option to resize large photos (max width/height, output quality)
++ Added option to limit the use of spotlight widget (once per day)
+* Admin > Messages updated; addded option to delete unwanted messages
+* Updated dependencies (Yii 2.0.34, payment SDK and others)
+* Messages page optimized, mysql indices added
+* Robokassa currency fix
+* Reduced package size
+* Fixed spotlight issue (ability to submit unverified photos)
+* Misc fixes
+* Misc theme updates
+
+Version 1.11 - Feb 25 2020
+--------------------------
++ Added Fortumo.com integration
++ Added Robokassa.com integration
+* Misc UI updates
+
+Version 1.10 - Feb 23 2020
+--------------------------
++ New: Groups page (public and private)
++ New: News page
+* PHP v7.4 support
+* Updated dependencies (Yii 2.0.32, payment SDK and others)
+* Enhancement: encounters photos preload
+* Enhancement: content/pages and content/plugins directories added into translation scanner module
+* Enhancement: language switcher for pages editor
+* Enhancement: ability to create new pages (Admin > Pages)
+* Fixed PayPal locale-dependent issue
+* Fixed spotlight widget shown in non-premium mode
+* Fixed messages search bug (Admin > Messsage, filter by Receiver)
+* Fixed encounters buttons positioning
+* Misc optimizations
+
+Version 1.9.1 - Jul 11 2019
+---------------------------
++ Added message attachments for Admin > Messages page
+* Fixed: spotlight widget not working when premium features are disabled (spotlight price will be 0 credits)
+
+Version 1.9 - Jun 13 2019
+-------------------------
++ New: much bigger data-source for countries, cities/towns. See https://youdate.hauntd.me/documentation/upgrade.html
++ New: photo attachments in messages (up to 5 photos per message)
++ New: GDPR related: data export feature (HTML or JSON)
++ Added "one country" mode (Admin > Settings > Main)
++ Added feature to detect city/town by IP address. See https://youdate.hauntd.me/documentation/upgrade.html 
+* Optimized thumbnails (direct static links instead of PHP actions when thumbnails have been already created)
+* Changed limits for credits amount
+* Updated dependencies (Yii 2.0.20, payment SDK and others)
+* Installer fixes and improvements
+* Theme styles updated
+* Fixed main photo assignment in some cases
+* Fixed various typos (cron related)
+* Fixed some translations
+* Removed autocomplete for cities inputs
+
+Version 1.8.2 - Feb 17 2019
+---------------------------
++ Users should not be able to block admin users
++ Added PHP Zip extension check (installer)
+* Name, date of birth, sex/gender are now mandatory fields
+* Changed validator for App URL key (installer)
+* Fixed private photos shown on Encounters page
+* Fixed photo uploading caused warning messages (GD image driver)
+
+Version 1.8.1 - Feb 13 2019
+---------------------------
++ Added page to view messages (Admin > Messages)
++ Added option to lock photo private status (admin area)
+* Forced translations for English language
+* Month names translations switched to internal module (Admin > Languages)
+* Fixed landing page/signup form (dates)
+
+Version 1.8 - Feb 07 2019
+---------------------------
++ New: redesigned landing page
++ New: private profile photos
++ New: plugin marketplace - install and update plugins in one click (more plugins soon)
++ Added translations: Arabic (RTL), Czech
++ Added RTL support for the default theme (youdate)
++ Added option to hide directory page for guests
++ Added VK Auth option
++ Added page to edit social auth credentials (Admin > Settings > Social auth)
++ Added favicon (youdate theme)
+* Enhancement: search by country only (without city)
+* Enhancement: counters for new verifications, reports, photos to verify (sidebar in area)
+* Dynamic forms code refactoring (no need in `symfony/dom-crawler` library for now)
+* Removed invalid Dutch countries translations
+* Suppressed error messages for missing fallback translations
+* Suppressed HTTP 400 error messages (invalid browser requests)
+* Fixed wrong language auto-detection, when browser's language is not supported/active (fallback to English)
+
+Version 1.7 - Jan 03 2019
+-------------------------
++ New: Plugins support
++ New: Fake Plugins generator (plugin)
++ New: Gifts feature
++ Added Chinese languages for countries/cities inputs
++ Added Dutch languages for countries/cities inputs
++ Misc UI improvements
+* Changed behavior of update command (because `popen` function required to run console commands is forbidden by some hosting providers)
+* Fixed wrong dates formatting in admin area
+
+Version 1.6.1 - Dec 08 2018
+---------------------------
+* Fixed signup form when choosing custom gender
+
+Version 1.6 - Dec 07 2018
+-------------------------
++ Added log messages viewer to admin area
++ Added currencies editor
++ Added sex/gender options editor
++ Added ability to hide payment options (Stripe/PayPal)
++ Added mail notifications (profile views, profile likes)
+* Enhancement: translations for "select" profile fields
+* Enhancement: notifications improvements
+* Enhancement: min/max age filter (Browse users page)
+* Enhancement: delete any notifications sent by blocked users
+* Fixed 404 error on language update (Admin > Languages > Edit Language)
+* Fixed premium features toggle problem
+
+Version 1.5.1 - Oct 27 2018
+---------------------------
+* Enhancement: link to user profile (Admin > Users > View)
+* Fixed encounters buttons position (Dashboard > Encounters)
+* Fixed translation issue on mutual encounters modal
+
+Version 1.5 - Oct 26 2018
+-------------------------
++ New: Dashboard page
++ New: Spotlight widget (on Dashboard page)
++ Added placeholder for advertise (adsHeader on Dashboard page)
++ Added console helper to strip exif data and ensure photo rotation (existing photos)
++ Added profile avatar fallback event (see example in `custom` theme, ThemeBootstrap class)
+* Enhancement: photo exif data removal on upload
+* Fixed sidebar(contacts) scroll in Messages
+* Fixed encounters mutual likes modal
+* Fixed bad photo orientation for some cases
+
+Version 1.4 - Oct 15 2018
+-------------------------
++ New: encounters page
++ Added option to set default site timezone (Admin > Settings > Main)
++ Added option to show or not users with photos (Admin > Settings > Main)
++ Added translations for footer links
++ Added PHP Mail transport
+* Enhancement: new documentation
+* Enhancement: auto-set user's main photo on upload or photo approve
+* Enhancement: autologin when e-mail verification is not required
+* Enhancement: better css for mobiles on messages page
+* Enhancement: display upload photo errors
+* Enhancement: search users with photo or not by default (Admin > Settings > Main)
+* Enhancement: boost and premium duration are now configurable (Admin > Settings > Prices))
+* Facebook/Twitter auth options are hidden when not configured
+* Removed HTTP 400, 403, 404 messages from logs
+* Fixed: balance link in menu is visible when premium features are disabled
+* Fixed: pjax problem on notifications page
+* Fixed: css/js problems in IE11
+
+Version 1.3 - Oct 05 2018
+-------------------------
++ New: Custom profile fields editor (administration area; user profiles)
++ New: Profile page design/layout
++ Added "With Photo only" option in directory search options
++ Added popularity widget on profile page(based on profile views)
++ Added option to turn off e-mail verification (administration area)
++ Added option to set site's main language (administration area)
++ Added custom header/footer code (css/js/analytics code) settings (administration area)
++ Added ICU extension check; EXIF extension check (installer requirements)
+* Improved users search UI
+* Fixed: notifications link not visible on mobiles/tablets
+* Fixed: signup/login css style problem on mobiles/tablets
+
+Version 1.2.1 - Sep 27 2018
+---------------------------
++ Added ability to delete cached data (Admin > Settings > Cached data)
+* Fixed language translate issue (updated translation was not visible because of caching)
+
+Version 1.2 - Sep 25 2018
+-------------------------
++ Added translation module (administration area). Now you can translate YouDate to any language
++ Added notifications (likes, guests)
++ Admins can add credits to users (administration area)
++ Admins can toggle user verifications (administration area)
+* Fixed MySQL group by problem
+* Fixed rare DB connection error on some hosting providers
+
+Version 1.1 - Sep 16 2018
+-------------------------
++ Added "Verifications" feature: users now can verify their profiles by sending a photo with a special gesture.
++ Added smiles (emoji) into messages: auto-replace text-smiles into emoji :-) -> 😀; emoji picker
++ Added option to turn off premium features (admin area)
++ Added options to search online/verified users only
+* Improved UI on various pages
+
+Version 1.0 - Sep 04 2018
+-------------------------
++ Initial release
